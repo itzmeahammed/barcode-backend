@@ -67,7 +67,6 @@ class UserController():
             user.save()
 
             return jsonify({
-                "role": user.role,
                 "token": token,
                 "exp": exp_time
             }), 200

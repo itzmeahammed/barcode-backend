@@ -17,18 +17,18 @@ class ProductController():
             logging.error(f"Error in getProduct: {str(e)}")
             return CommonException.handleException()
     
-    def getProductByCatogory():
+    def getProductByCategory():
         try:
-            catogory = request.args.get('catogory')
-            if not catogory:
+            category = request.args.get('category')
+            if not category:
                 return CommonException.IdRequiredException()
-            products = Product.objects(catogory=catogory)
+            products = Product.objects(category=category)
             if products:
                 return jsonify([product.to_json() for product in products]), 200
             else:
                 return jsonify([]), 200
         except Exception as e:
-            logging.error(f"Error in getProductByCatogory: {str(e)}")
+            logging.error(f"Error in getProductByCategory: {str(e)}")
             return CommonException.handleException()
 
     def getProductsByUser():
