@@ -2,3 +2,4 @@ flask
 mongoengine
 dotenv
 pyJWT
+flask_cors

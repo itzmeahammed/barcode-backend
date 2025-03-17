@@ -1,8 +1,9 @@
 from mongoengine import Document, StringField, IntField, FloatField, DateTimeField,ReferenceField
 from datetime import datetime
+from Models.user_model import User
 
 class Product(Document):
-    user= ReferenceField(reverse_delete_rule=2,required=True)
+    user= ReferenceField(User,reverse_delete_rule=2,required=True)
     name = StringField(required=True)
     category = StringField(required=True)
     price = FloatField(required=True)
