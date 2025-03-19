@@ -10,6 +10,7 @@ class Invoice(Document):
     unit = StringField(required=True)
     stock = IntField(required=True)
     expiry_date = StringField(required=True)
+    image = StringField()
     brand = StringField(required=True)
     created_at = DateTimeField(default=datetime.utcnow)
     updated_at = DateTimeField(default=datetime.utcnow)
@@ -23,6 +24,7 @@ class Invoice(Document):
             "price": self.price,
             "unit": self.unit,
             "stock": self.stock,
+            "image":self.image,
             "expiry_date": self.expiry_date,
             "brand": self.brand,
             "created_at": self.created_at.strftime("%d %B %Y"),
