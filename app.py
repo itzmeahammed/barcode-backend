@@ -6,6 +6,7 @@ from Utils.jwt_authentication import CheckAuthorization
 from dotenv import load_dotenv
 from Routes.user_route import user_bp
 from Routes.product_route import product_bp
+from Routes.invoice_route import invoice_bp
 
 
 load_dotenv()
@@ -52,6 +53,7 @@ def health_check():
     
 app.register_blueprint(user_bp,url_prefix='/api/user')
 app.register_blueprint(product_bp,url_prefix='/api/product')
+app.register_blueprint(invoice_bp,url_prefix='/api/invoice')
 
 
 
