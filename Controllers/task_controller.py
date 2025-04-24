@@ -52,6 +52,7 @@ class TaskController:
 
             employee_id = data.get('employee')
             task = data.get('task')
+            status = data.get('status')
             
 
             if not all([employee_id, task]):
@@ -65,6 +66,7 @@ class TaskController:
                 manager=manager,
                 employee=employee,
                 task=task,
+                status=status
             )
             new_task.save()
             return jsonify({"message": "Task Created Successfully", "task": str(new_task.id)}), 200

@@ -13,8 +13,8 @@ class Task(Document):
     def to_json(self):
         return {
             "id": str(self.id),
-            'manager':str(self.manager.id),
-            'employee':str(self.employee.id),
+            'manager':self.manager.to_json() if self.manager else None,
+            'employee':self.employee.to_json() if self.employee else None,
             "task": self.task,
             "status": self.status,
             "created_at": self.created_at.strftime("%d %B %Y"),
