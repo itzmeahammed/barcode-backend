@@ -10,7 +10,7 @@ class Attendance(Document):
     def to_json(self):
         return {
             "id": str(self.id),
-            'employee':str(self.employee.id),
+            'employee':self.employee.to_json() if self.employee else None,
             "status": self.status,
             "data": self.data.strftime("%d %B %Y"),
         }
