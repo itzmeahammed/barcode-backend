@@ -15,7 +15,7 @@ class InvoiceController():
                 return jsonify([]), 200
         except Exception as e:
             logging.error(f"Error in getInvoice: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
     
     def getInvoiceByCategory():
         try:
@@ -29,7 +29,7 @@ class InvoiceController():
                 return jsonify([]), 200
         except Exception as e:
             logging.error(f"Error in getInvoiceByCategory: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
 
     def getInvoicesByUser():
         try:

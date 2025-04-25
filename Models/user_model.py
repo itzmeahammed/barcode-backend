@@ -2,7 +2,7 @@ from mongoengine import Document, StringField,EmailField
 import datetime
 class User(Document):
     username = StringField(required=True)
-    role = StringField(choices=['manager','employee'],required=True)
+    role = StringField(choices=['admin','manager','employee'],required=True)
     number=StringField(required=True)
     email= EmailField(unique=True,required=True)
     auth_token = StringField()

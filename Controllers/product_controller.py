@@ -15,7 +15,7 @@ class ProductController():
                 return jsonify([]), 200
         except Exception as e:
             logging.error(f"Error in getProduct: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
     
     def getProductByCategory():
         try:
@@ -29,7 +29,7 @@ class ProductController():
                 return jsonify([]), 200
         except Exception as e:
             logging.error(f"Error in getProductByCategory: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
 
     def getProductsByUser():
         try:

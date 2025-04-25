@@ -17,7 +17,7 @@ class TaskController:
             return jsonify([task.to_json() for task in tasks]), 200
         except Exception as e:
             logging.error(f"Error in getAllTasks: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
 
     def getTasksByUser():
         try:
@@ -37,7 +37,7 @@ class TaskController:
             return jsonify([task.to_json() for task in tasks]), 200
         except Exception as e:
             logging.error(f"Error in getTasksByUser: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
 
     def createTask():
         try:
@@ -72,7 +72,7 @@ class TaskController:
             return jsonify({"message": "Task Created Successfully", "task": str(new_task.id)}), 200
         except Exception as e:
             logging.error(f"Error in createTask: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
 
     def updateTask():
         try:
@@ -93,7 +93,7 @@ class TaskController:
             return jsonify({"message": "Task Updated Successfully"}), 200
         except Exception as e:
             logging.error(f"Error in updateTask: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
 
     def deleteTask():
         try:
@@ -114,4 +114,4 @@ class TaskController:
             return jsonify({"message": "Task Deleted Successfully"}), 200
         except Exception as e:
             logging.error(f"Error in deleteTask: {str(e)}")
-            return CommonException.handleException()
+            return CommonException.handleException(e)
